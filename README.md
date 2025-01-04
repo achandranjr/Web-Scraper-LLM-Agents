@@ -51,17 +51,7 @@ CREATE TABLE alcohol_products (
 
 ## Usage
 
-There are two main scraper implementations:
-
-### Basic Scraper (AgentQLTest.py)
-- Basic implementation without resume capability
-- Supports skipping specific product ranges
-- Run with:
-```bash
-python AgentQLTest.py
-```
-
-### Enhanced Scraper (AllendaleScraper.py)
+### AllendaleScraper.py
 - Includes resume capability
 - Handles duplicates
 - Maintains session statistics
