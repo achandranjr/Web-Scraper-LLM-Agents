@@ -135,7 +135,7 @@ def main():
             session_processed = 0
             
             # Process links one at a time
-            
+            alc_type = URL.split("/catrgories/")[1].lower()
             for result in get_product_links_generator(URL, last_product):
                 try:
                     page.goto(result[0])
@@ -160,7 +160,7 @@ def main():
                     cursor.execute(INSERT_SQL, (
                         result[1],
                         info["product_name"],
-                        "wine",
+                        alc_type,
                         info["category"],
                         info["brand"],
                         info["alcohol_by_volume"],
@@ -172,7 +172,7 @@ def main():
                     session_processed += 1
                     
                 except Exception as e:
-                    print(f"Error processing product {link}: {e}")
+                    print(f"Error processing product {result[0]}: {e}")
                     continue
                 
             final_total = get_total_products_processed(cursor)
